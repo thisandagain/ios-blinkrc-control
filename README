@@ -1,0 +1,3 @@
+Quick prototype of a iOS (currently only targeted for the iPhone 4) application for remote control of the BlinkRC (www.blinkgear.com) WIFI servo controller.
+
+The application requires the Sparrow Framework (http://www.sparrow-framework.org/) and makes use of the CocoaAsyncSocket library (http://code.google.com/p/cocoaasyncsocket/).

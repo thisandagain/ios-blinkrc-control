@@ -317,7 +317,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Application_Prefix.pch;
 				INFOPLIST_FILE = "Application-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = ILBControl;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -328,7 +330,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Application_Prefix.pch;
 				INFOPLIST_FILE = "Application-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = ILBControl;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

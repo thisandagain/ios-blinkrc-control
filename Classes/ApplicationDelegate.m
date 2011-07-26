@@ -1,5 +1,5 @@
 //
-//  AppScaffoldAppDelegate.m
+//  ApplicationDelegate.m
 //  AppScaffold
 //
 
