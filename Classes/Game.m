@@ -7,62 +7,41 @@
 
 @implementation Game
 
+/**
+ * Init With Width (Standard)
+ *
+ * @param  object
+ *
+ * @return object
+ */
 - (id)initWithWidth:(float)width height:(float)height
 {
     if ((self = [super initWithWidth:width height:height]))
-    {
-        // this is where the code of your game will start. 
-        // in this sample, we add just a simple quad to see if it works.
-        /*
-        SPTexture *circleTexture = [[SPTexture alloc] initWithWidth:100.0 height:100.0
-            draw:^(CGContextRef context)
-            {
-                CGMutablePathRef circlePath = CGPathCreateMutable();
-                
-                CGPathAddEllipseInRect(circlePath, NULL, CGRectMake(0.0, 0.0, 100.0, 100.0));
-                CGContextAddPath(context, circlePath);
-                
-                CGContextClip(context);
-                
-                CGContextAddPath(context, circlePath);
-                
-                CGContextSetFillColorWithColor(context, [[UIColor blueColor] CGColor]);
-                CGContextFillPath(context);
-
-                CGContextAddPath(context, circlePath);
-                
-                CGContextSetStrokeColorWithColor(context, [[UIColor whiteColor] CGColor]);
-                CGContextSetLineWidth(context, 8.0);
-                CGContextStrokePath(context);
-                
-                CGPathRelease(circlePath);
-            }];
-         */
-        
+    {   
+		// Background
         background = [[SPImage alloc] initWithContentsOfFile:@"background.png"];
         [self addChild:background];
         
+		// Control
         circle = [[SPImage alloc] initWithContentsOfFile:@"control.png"];
-        //[circleTexture release];
-        
         circle.x = (self.width / 2) - 50.0;
         circle.y = (self.height / 2) - 50.0;
-        
         [self addChild:circle];
         
+		// Particle system
         particleSystem = [[SXParticleSystem alloc] initWithContentsOfFile:@"plasma.xml"];
         particleSystem.x = 0.0f;
         particleSystem.y = 0.0f;
         [self addChild:particleSystem];
         [self.juggler addObject:particleSystem];
         
+		// Touch event listener
         [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         tracking = false;
         
-        //
-        // Setup UDP socket
-        //
-        
+		// ###
+		
+		// UDP socket
         socket = [[AsyncUdpSocket alloc] initWithDelegate:self];
         
         NSError *bindError = nil;
@@ -77,22 +56,17 @@
         }
         
         [socket enableBroadcast:YES error:nil];
-        
-                
-        // Per default, this project compiles as an iPhone application. To change that, enter the 
-        // project info screen, and in the "Build"-tab, find the setting "Targeted device family".
-        //
-        // Now Choose:  
-        //   * iPhone      -> iPhone only App
-        //   * iPad        -> iPad only App
-        //   * iPhone/iPad -> Universal App  
-        // 
-        // If you want to support the iPad, you have to change the "iOS deployment target" setting
-        // to "iOS 3.2" (or "iOS 4.2", if it is available.)
     }
     return self;
 }
 
+/**
+ * Deallocate
+ *
+ * @param  void
+ *
+ * @return  void
+ */
 - (void)dealloc
 {
     [background release];
@@ -102,16 +76,22 @@
     [super dealloc];
 }
 
-
-
+/**
+ * onTouch event
+ *
+ * @param  SPTouchEvent
+ *
+ * @return  void
+ */
 - (void)onTouch:(SPTouchEvent *)event
 {
+	// Check for target "hit"
     SPTouch *circleTouch = [[event touchesWithTarget:circle andPhase:SPTouchPhaseBegan] anyObject];
     if (circleTouch) {
         tracking = true;
     }
-
     
+	// Track touch position
     SPTouch *touch = [[event touchesWithTarget:self] anyObject];
     if (touch && tracking)
     {
@@ -148,9 +128,9 @@
             NSLog(@"Error sending data.");
         }
         
-        
         //NSLog(@"vertical: %f  horizontal: %f\n", verticalMove, horizontalMove);
         
+		// Phase: Began
         if (touch.phase == SPTouchPhaseBegan)
         {
             SPTween *circleDisappear = [SPTween tweenWithTarget:circle time:0.2 transition:SP_TRANSITION_EASE_IN];
@@ -165,22 +145,23 @@
             particleSystem.emitterY = touchPosition.y;
             [particleSystem performSelector:@selector(start) withObject:nil afterDelay:0.2];
         }
-        
+		// Phase: Moved
         else if (touch.phase == SPTouchPhaseMoved)
         {
+			// Move sprite & particle emitter
             particleSystem.emitterX = touchPosition.x;
             particleSystem.emitterY = touchPosition.y;
             circle.x = touchPosition.x - (circle.width / 2);
             circle.y = touchPosition.y - (circle.height / 2);
         }
-        
+		// Phase: Ended
         else if ((touch.phase == SPTouchPhaseEnded) || (touch.phase == SPTouchPhaseCancelled))
         {
             tracking = false;
             [NSObject cancelPreviousPerformRequestsWithTarget:particleSystem];
             [particleSystem stop];
             
-            //center circle on screen
+            // Re-center circle on screen
             SPTween *circleReturn = [SPTween tweenWithTarget:circle time:0.3 transition:SP_TRANSITION_EASE_OUT];
             [circleReturn animateProperty:@"scaleX" targetValue:1.0];
             [circleReturn animateProperty:@"scaleY" targetValue:1.0];
