@@ -1,5 +1,5 @@
 //
-//  AppScaffoldAppDelegate.h
+//  ApplicationDelegate.h
 //  AppScaffold
 //
 

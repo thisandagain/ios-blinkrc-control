@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,10 @@
 		9F8D67DC13DB6A9700F6D7C9 /* control@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8D67D813DB6A9700F6D7C9 /* control@2x.png */; };
 		9F8D67DF13DB6CF100F6D7C9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8D67DD13DB6CF100F6D7C9 /* background.png */; };
 		9F8D67E013DB6CF100F6D7C9 /* control.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8D67DE13DB6CF100F6D7C9 /* control.png */; };
+		C393E2B013E0739100ADACD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C393E2AF13E0739100ADACD3 /* Icon.png */; };
+		C393E2B213E0739300ADACD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C393E2B113E0739300ADACD3 /* Icon@2x.png */; };
+		C393E2B413E0739500ADACD3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C393E2B313E0739500ADACD3 /* Default.png */; };
+		C393E2B613E0739700ADACD3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C393E2B513E0739700ADACD3 /* Default@2x.png */; };
 		DE3F093811B7B9DC009D4DB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */; };
 		DE3F093A11B7B9DC009D4DB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */; };
 		DE3F097811B7BABD009D4DB0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F097711B7BABD009D4DB0 /* OpenAL.framework */; };
@@ -75,6 +79,10 @@
 		9F8D67D813DB6A9700F6D7C9 /* control@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "control@2x.png"; sourceTree = "<group>"; };
 		9F8D67DD13DB6CF100F6D7C9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		9F8D67DE13DB6CF100F6D7C9 /* control.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = control.png; sourceTree = "<group>"; };
+		C393E2AF13E0739100ADACD3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		C393E2B113E0739300ADACD3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		C393E2B313E0739500ADACD3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C393E2B513E0739700ADACD3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DE3F097711B7BABD009D4DB0 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -132,6 +140,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C393E2B513E0739700ADACD3 /* Default@2x.png */,
+				C393E2B313E0739500ADACD3 /* Default.png */,
+				C393E2B113E0739300ADACD3 /* Icon@2x.png */,
+				C393E2AF13E0739100ADACD3 /* Icon.png */,
 				DE4A3DA210FFB0D400FDA492 /* Sparrow.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -226,8 +238,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ILBControl" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -278,6 +293,10 @@
 				9F8D67DC13DB6A9700F6D7C9 /* control@2x.png in Resources */,
 				9F8D67DF13DB6CF100F6D7C9 /* background.png in Resources */,
 				9F8D67E013DB6CF100F6D7C9 /* control.png in Resources */,
+				C393E2B013E0739100ADACD3 /* Icon.png in Resources */,
+				C393E2B213E0739300ADACD3 /* Icon@2x.png in Resources */,
+				C393E2B413E0739500ADACD3 /* Default.png in Resources */,
+				C393E2B613E0739700ADACD3 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +335,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Application_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "Application-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = ILBControl;
@@ -329,6 +349,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Application_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "Application-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = ILBControl;
@@ -349,7 +370,6 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "${SPARROW_SRC}/**";
 			};
@@ -368,7 +388,6 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "${SPARROW_SRC}/**";
 			};
