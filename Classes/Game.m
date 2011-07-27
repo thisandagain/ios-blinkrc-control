@@ -111,14 +111,18 @@
             horizontalMove = -100;
         }
         
+		// UDP command string setup
         NSString *verticalString = [NSString stringWithFormat:@"%02.2X", verticalMove];
         verticalString = [verticalString substringFromIndex:([verticalString length] - 2)];
         
         NSString *horizontalString = [NSString stringWithFormat:@"%02.2X", horizontalMove];
         horizontalString = [horizontalString substringFromIndex:([horizontalString length] - 2)];
         
-        NSString *sendString = [NSString stringWithFormat:@"0x42 0x47 0x01 0x40 0x%@ 0x%@", verticalString, horizontalString];
-        
+        // V1 Command Set:
+		//NSString *sendString = [NSString stringWithFormat:@"0x42 0x47 0x01 0x40 0x%@ 0x%@", verticalString, horizontalString];
+        // V2 Command Set:
+		NSString *sendString = [NSString stringWithFormat:@"BG 0x02 0x88 0x01 0x%@ 0x01 0x%@ 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00", verticalString, horizontalString];
+		
         NSData *sendData = [sendString dataUsingEncoding:NSASCIIStringEncoding];
         
         NSLog(@"%@, %@", sendString, sendData);
