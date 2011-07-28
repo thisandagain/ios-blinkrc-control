@@ -20,8 +20,8 @@
 }
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application 
-{    
-    SP_CREATE_POOL(pool);    
+{
+	SP_CREATE_POOL(pool);    
     
     [SPStage setSupportHighResolutions:YES];
     [SPAudioEngine start];
